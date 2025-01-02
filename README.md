@@ -90,6 +90,10 @@
 ***********
 
 ## 시연 영상
+### 사용자 페이지 - 회원가입, 로그인, 로그아웃
+https://github.com/user-attachments/assets/eb0a4095-89a2-4e2f-8d45-c5bd505dd2a2
+
+### 사용자 페이지 - 메인페이지 
 
 ### 관리자 페이지
 https://github.com/user-attachments/assets/f5aff28d-5b63-4b4c-a396-a3f4945cc075
