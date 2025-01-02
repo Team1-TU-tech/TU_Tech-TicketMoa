@@ -6,13 +6,13 @@
 - [기술스택](#기술스택)
 - [개발기간](#개발기간)
 - [Features](#Features) #######넘버링하기########
-  - [REACT](#1.REACT) #####추가하기#####
-  - [2.API](#2.API) 
-  - [OCR](#3.OCR)
-  - [ML](#4.ML)
-  - [CRAWLING](#5.CRAWLING)
-  - [AIRFLOW](#6.AIRFLOW)
-  - [SPARK](#7.SPARK) #####추가하기#####
+  - [1. REACT](#REACT) #####추가하기#####
+  - [API](#2-API)
+  - [3. OCR](#OCR)
+  - [4. ML](#ML)
+  - [5. CRAWLING](#CRAWLING)
+  - [6. AIRFLOW](#AIRFLOW)
+  - [7. SPARK](#SPARK) #####추가하기#####
 - [Contributors](#Contributors)
 - [License](#License)
 - [문의](#문의)
