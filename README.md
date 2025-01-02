@@ -31,6 +31,7 @@
 
 =======================================================================================
 # **Features**
+# 1. REACT
 # 2. API
 ## 개요
 - docker-compose를 활용하여 FastAPI 실행, 공연 정보 제공 
@@ -117,7 +118,7 @@ docker compose up -d
 [localhost:8081](https://localhost:8081)
 <br></br>
 
-# 3.OCR
+# 3. OCR
 ## 개요
 - 이미지에서 텍스트를 추출하는 OCR(Optical Character Recognition) 기능 제공
 - `easyocr` 라이브러리를 사용하여 이미지를 처리하고 텍스트 추출
@@ -162,7 +163,7 @@ def split_image(image, height_limit=1000):
 ```
 <br></br>
 
-# 4.ML
+# 4. ML
 ## 개요
 - 공연 데이터를 기반으로 유사한 공연을 추천하는 알고리즘 구현
 - 주로 공연의 설명(description)과 시작일(start_date), 지역(region) 등의 정보를 활용하여 유사한 공연을 찾아 추천
@@ -196,7 +197,7 @@ pip install numpy pandas scikit-learn gensim konlpy
 ```
 <br></br>
 
-# 5.CRAWLING
+# 5. CRAWLING
 ## 개요
 - Interpark / YES24 / Ticketlink 웹사이트에서 공연 티켓 정보를 크롤링하여, 다양한 공연의 티켓 정보를 수집하고 사용자에게 제공하는 기능을 구현
 - 크롤링한 데이터는 특정 형식으로 저장되어, 후속 작업으로 티켓 검색 및 필터링 기능을 제공하거나, 다른 시스템에 연동할 수 있도록 활용
@@ -207,7 +208,7 @@ pip install numpy pandas scikit-learn gensim konlpy
 - **티켓 정보 수집**: 공연 이름, 날짜, 시간, 가격, 좌석 정보 등 다양한 티켓 정보를 수집
 <br></br>
 
-# 6.AIRFLOW
+# 6. AIRFLOW
 ## 개요
 - 구성: Docker Compose로 Apache Airflow와 Apache Kafka를 구성
 - 데이터 수집: 3개 타겟 사이트에서 크롤링한 공연 데이터를 S3에 적재.
@@ -255,7 +256,7 @@ $ docker compose up -d
 [localhost:8080](https://localhost:8080)
 <br></br>  
 
-# 7.SPARK
+# 7. SPARK
 
 ===============================================================
 
