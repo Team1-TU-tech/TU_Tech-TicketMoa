@@ -7,7 +7,7 @@
 - [개발기간](#개발기간)
 - [Features](#Features) #######넘버링하기########
   - [REACT](#1.REACT) #####추가하기#####
-  - [API](#2.API) 
+  - [2.API](#2.API) 
   - [OCR](#3.OCR)
   - [ML](#4.ML)
   - [CRAWLING](#5.CRAWLING)
