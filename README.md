@@ -21,10 +21,12 @@
 **`관리자`를 위한 기능**
 - 검색 기록 확인 가능
 - 로그 데이터 기반 시각화 자료 제공
-<br></br>
+***************
+
 ## 목차
 - [기술스택](#기술스택)
 - [개발기간](#개발기간)
+- [시스템아키텍쳐](#시스템-아키텍쳐)
 - [Features](#Features)
   
   - [React](#ReacT) 
@@ -50,45 +52,50 @@
 <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=white"/> <img src="https://img.shields.io/badge/Amazon%20EC2-232F3E?style=flat&logo=amazonwebservices&logoColor=ffffff"/> <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Selenium-43B02A?style=flat&logo=selenium&logoColor=F5F7F8"/> <img src="https://img.shields.io/badge/Kakao-FFCD00?style=flat&logo=Kakao&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Google Chrome-4285F4?style=flat&logo=Google Chrome&logoColor=ffffff"/> <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=ffffff"/>
 <br></br>
 ## 개발기간
-`2024.11.14 ~ 2024.12.31(48일)`
+`**2024.11.14 ~ 2024.12.31(48일)**`
 <br></br>
-# Features
-## React -> [repo 바로가기](https://github.com/Team1-TU-tech/react)
+## 시스템 아키텍쳐
+![image](https://github.com/user-attachments/assets/b00fd4f6-dd14-4aa6-b126-bbe45f18875b)
+
+## Features
+### React -> [repo 바로가기](https://github.com/Team1-TU-tech/react)
 - TicketMoa의 front-end를 담당하는 application
 - Nginx를 Load Balancer로 활용하여 가용성을 높임
 <br></br>
-## API -> [repo 바로가기](https://github.com/Team1-TU-tech/API)
+### API -> [repo 바로가기](https://github.com/Team1-TU-tech/API)
 - docker-compose를 활용하여 FastAPI 실행, 공연 정보 제공 
 - 사용자가 다양한 공연에 대한 정보를 검색, 조회, 추천할 수 있도록 지원
 - 사용자 경험을 향상시키기 위해 실시간 로그 데이터 분석 및 머신러닝 기반 추천 기능 제공
 - `Validate`, `Login_log`, `Logout_log`, `KakaoLogin_log`, `KakaoLogout_log`,`Signup_log`, `View_detail_log` , `Search_log` 토픽에 대해 사용자 요청을 로깅
 <br></br>
-## OCR -> [repo 바로가기](https://github.com/Team1-TU-tech/ocr)
+### OCR -> [repo 바로가기](https://github.com/Team1-TU-tech/ocr)
 - 이미지에서 텍스트를 추출하는 OCR(Optical Character Recognition) 기능 제공
 - `easyocr` 라이브러리를 사용하여 이미지를 처리하고 텍스트 추출
 <br></br>
-## ML -> [repo 바로가기](https://github.com/Team1-TU-tech/ml)
+### ML -> [repo 바로가기](https://github.com/Team1-TU-tech/ml)
 - 공연 데이터를 기반으로 유사한 공연을 추천하는 알고리즘 구현
 - 주로 공연의 설명(description)과 시작일(start_date), 지역(region) 등의 정보를 활용하여 유사한 공연을 찾아 추천
 <br></br>
-## Crawling -> [repo 바로가기](https://github.com/Team1-TU-tech/crawling)
+### Crawling -> [repo 바로가기](https://github.com/Team1-TU-tech/crawling)
 - Interpark / YES24 / Ticketlink 웹사이트에서 공연 티켓 정보를 크롤링하여, 다양한 공연의 티켓 정보를 수집하고 사용자에게 제공하는 기능을 구현
 - 크롤링한 데이터는 특정 형식으로 저장되어, 후속 작업으로 티켓 검색 및 필터링 기능을 제공하거나, 다른 시스템에 연동할 수 있도록 활용
 <br></br>
-## Airflow -> [repo 바로가기](https://github.com/Team1-TU-tech/airflow)
+### Airflow -> [repo 바로가기](https://github.com/Team1-TU-tech/airflow)
 - 구성: Docker Compose로 Apache Airflow와 Apache Kafka를 구성
 - 데이터 수집: 3개 타겟 사이트에서 크롤링한 공연 데이터를 S3에 적재.
 - 데이터 전처리: S3 데이터를 전처리하여 MongoDB에 저장.
 - 추천 시스템: 유사 공연 추천 결과를 매일 배치 작업으로 생성하여 MongoDB에 저장.
 - 중복 데이터 삭제: 매일 배치 작업으로 MongoDB 중복 데이터 삭제.
 - 로그 기반 인기 공연 추출: S3 로그 데이터를 읽어와 인기 공연 추출 결과를 매일 배치 작업으로 생성하여 MongoDB에 저장.
-<br></br>
+***********
+
 ## 시연 영상
+
 ### 관리자 페이지
 https://github.com/user-attachments/assets/f5aff28d-5b63-4b4c-a396-a3f4945cc075
 
 ## Contributors
-`Mingk42`, `hahahellooo`, `hamsunwoo`, `oddsummer56`
+![image](https://github.com/user-attachments/assets/7fc14db7-9442-426e-ab16-304598054235)
 <br></br>
 ## License
 이 애플리케이션은 TU-tech 라이선스에 따라 라이선스가 부과됩니다.
