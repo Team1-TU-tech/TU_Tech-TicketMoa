@@ -1,18 +1,17 @@
-# TU-Tech: `TicketMoa`
+# TU-Tech: [`Ticket Moa`](http://www.ticket-moa.net)
 
 ## 전체 목차
-
-
 - [기술스택](#기술스택)
 - [개발기간](#개발기간)
-- [Features](#Features) 
+- [Features](#Features)
+  
   - [REACT](#1-REACT) 
   - [API](#2-API)
   - [OCR](#3-OCR)
   - [ML](#4-ML)
   - [CRAWLING](#5-CRAWLING)
   - [AIRFLOW](#6-AIRFLOW)
-  - [SPARK](#7-SPARK) 
+    
 - [Contributors](#Contributors)
 - [License](#License)
 - [문의](#문의)
@@ -21,7 +20,7 @@
 <img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=FastAPI&logoColor=FFFFFF"/> <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=flat&logo=Python&logoColor=F5F7F8"/> <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=MongoDB&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Amazon%20S3-569A31?style=flat&logo=Amazon%20S3&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=white"/> <img src="https://img.shields.io/badge/Apache%20Kafka-231F20?style=flat&logo=Apache%20Kafka&logoColor=white"/> <img src="https://img.shields.io/badge/Numpy-013243?style=flat&logo=numpy&logoColor=F5F7F8"/> <img src="https://img.shields.io/badge/Scikitlearn-F7931E?style=flat&logo=scikitlearn&logoColor=F5F7F8"/>    <img src="https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=F5F7F8"/> <img src="https://img.shields.io/badge/Selenium-43B02A?style=flat&logo=selenium&logoColor=F5F7F8"/>  <img src="https://img.shields.io/badge/Beautifulsoup-3776AB?style=flat&logo=Beautifulsoup&logoColor=#090a0a"/> <img src="https://img.shields.io/badge/Apache Airflow-017CEE?style=flat&logo=Apache Airflow&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Redis-FF4438?style=flat&logo=Redis&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Amazon%20EC2-232F3E?style=flat&logo=amazonwebservices&logoColor=ffffff"/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=ffffff"/> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=TypeScript&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=Bootstrap&logoColor=ffffff"/> <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Kakao-FFCD00?style=flat&logo=Kakao&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Google Chrome-4285F4?style=flat&logo=Google Chrome&logoColor=ffffff"/>
 <br></br> 
 ## 개발기간
-`2024.11.14 ~ 2025.1.2(50일)`
+`2024.11.14 ~ 2025.1.6(54일)`
 <br></br>
 # **Features**
 # 1. REACT
@@ -55,6 +54,7 @@ $ vi docker-compose.yaml
 <br></br>
 ## 목차
 - [API Features](#API-Features)
+- [기능설명](#API-기능-설명)
 - [Logging](#Logging)
 - [실행 요구 사항](#API-실행-요구-사항)
 <br></br>
@@ -63,6 +63,7 @@ $ vi docker-compose.yaml
 
 ![image](https://github.com/user-attachments/assets/ce4fc0a2-a098-4de2-8b38-a8d0eef3fa61)
 
+## API 기능설명
 ### search
 - 공연 제목, 카테고리, 날짜, 아티스트 이름, 지역으로 공연 정보 검색
 - 검색 시 로그 생성 후 Kafka를 통해 S3에 업로드
@@ -102,7 +103,7 @@ $ vi docker-compose.yaml
 <br></br>
 ## Logging
 ### 로깅 시스템
-- 'Validate', 'Login_log', 'Logout_log', 'KakaoLogin_log', 'KakaoLogout_log', 'Signup_log', 'View_detail_log' , 'Search_log' 토픽에 대해 사용자 요청을 로깅
+- `Validate`, `Login_log`, `Logout_log`, `KakaoLogin_log`, `KakaoLogout_log`,`Signup_log`, `View_detail_log` , `Search_log` 토픽에 대해 사용자 요청을 로깅
 - 사용자가 검색 요청을 하면, 요청 정보를 카프카 프로듀서가 메시지로 큐에 저장
 - 메시지에는 사용자 ID, 검색어, 타임스탬프, 디바이스 정보 등의 메타데이터 포함
 ### 메시지 처리 및 저장
@@ -110,11 +111,11 @@ $ vi docker-compose.yaml
 - 메시지는 다음 조건 중 하나를 만족하면 S3에 Parquet 형식으로 저장
   - 메시지가 1시간 동안 누적된 경우
   - 전체 메시지가 1000개 이상 누적된 경우
-- 각 토픽별로 독립적으로 데이터를 처리하며, 저장 경로는 logs/{토픽명}/{타임스탬프}.parquet 형식으로 구성
+- 각 토픽별로 독립적으로 데이터를 처리하며, 저장 경로는 `logs/{토픽명}/{타임스탬프}.parquet` 형식으로 구성
 ### 장점
-1. 효율적인 저장: Parquet 파일 형식을 사용해 저장 공간을 절약하고 분석 속도를 최적화
-2. 확장성: 토픽별 배치 처리로 대규모 데이터도 성능 저하 없이 처리 가능
-3. 안정성: 업로드 후 버퍼 초기화를 통해 중복 저장을 방지하고 데이터 무결성 유지
+- 효율적인 저장: Parquet 파일 형식을 사용해 저장 공간을 절약하고 분석 속도를 최적화
+- 확장성: 토픽별 배치 처리로 대규모 데이터도 성능 저하 없이 처리 가능
+- 안정성: 업로드 후 버퍼 초기화를 통해 중복 저장을 방지하고 데이터 무결성 유지
 <br></br>
 ## API 실행 요구 사항 
 ```bash
@@ -167,7 +168,6 @@ def split_image(image, height_limit=1000):
         parts.append(image.crop(box))
     return parts
 ```
-<br></br>
 # 4. ML
 ## 개요
 - 공연 데이터를 기반으로 유사한 공연을 추천하는 알고리즘 구현
@@ -197,7 +197,6 @@ def get_top_similar_performances(cosine_sim: np.ndarray, performances, top_n=3, 
 ```bash
 pip install numpy pandas scikit-learn gensim konlpy
 ```
-<br></br>
 # 5. CRAWLING
 ## 개요
 - Interpark / YES24 / Ticketlink 웹사이트에서 공연 티켓 정보를 크롤링하여, 다양한 공연의 티켓 정보를 수집하고 사용자에게 제공하는 기능을 구현
@@ -218,12 +217,14 @@ pip install numpy pandas scikit-learn gensim konlpy
 <br></br>
 ## 목차
 - [DAGs](#DAGs)
+- [기능설명](#DAGs-기능-설명)
 - [실행 요구 사항](#AIRFLOW-실행-요구-사항)
 <br></br>
 ## DAGs
 
 ![image](https://github.com/user-attachments/assets/edabd89d-cb94-40c3-bbde-a159deb3c8bb)
 
+## DAGs 기능설명
 ### Deduplication
 - MongoDB에 중복 데이터 저장 방지를 위해 매일 배치 작업이 이루어지며 중복 데이터를 삭제
 ### Interpark/Yes24/Ticketlink to S3
@@ -250,21 +251,14 @@ $ docker compose up -d
 ### Airflow UI 접속 
 [localhost:8080](https://localhost:8080)
 <br></br>  
-# 7. SPARK
-
-
-
 ## Contributors
 `Mingk42`, `hahahellooo`, `hamsunwoo`, `oddsummer56`
 <br></br>
-
 ## License
 이 애플리케이션은 TU-tech 라이선스에 따라 라이선스가 부과됩니다.
 <br></br>
-
 ## 문의
 질문이나 제안사항이 있으면 언제든지 연락주세요:
 <br></br>
 - 이메일: TU-tech@tu-tech.com
 - Github: `Mingk42`, `hahahellooo`, `hamsunwoo`, `oddsummer56`
-
