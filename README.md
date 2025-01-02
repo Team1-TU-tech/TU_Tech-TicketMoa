@@ -1,44 +1,58 @@
-# TU_Tech-TicketMoa
+# TU-Tech: `TicketMoa`
 
 ## 전체 목차
 
 
 - [기술스택](#기술스택)
 - [개발기간](#개발기간)
-- [Features](#Features) #######넘버링하기########
-  - [REACT](#1-REACT) #####추가하기#####
+- [Features](#Features) 
+  - [REACT](#1-REACT) 
   - [API](#2-API)
   - [OCR](#3-OCR)
   - [ML](#4-ML)
   - [CRAWLING](#5-CRAWLING)
   - [AIRFLOW](#6-AIRFLOW)
-  - [SPARK](#7-SPARK) #####추가하기#####
+  - [SPARK](#7-SPARK) 
 - [Contributors](#Contributors)
 - [License](#License)
 - [문의](#문의)
-  
 <br></br>
-
 ## 기술스택
-<img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=FastAPI&logoColor=FFFFFF"/> <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=flat&logo=Python&logoColor=F5F7F8"/> <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=MongoDB&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Amazon%20S3-569A31?style=flat&logo=Amazon%20S3&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=white"/> <img src="https://img.shields.io/badge/Apache%20Kafka-231F20?style=flat&logo=Apache%20Kafka&logoColor=white"/> <img src="https://img.shields.io/badge/Numpy-013243?style=flat&logo=numpy&logoColor=F5F7F8"/> <img src="https://img.shields.io/badge/Scikitlearn-F7931E?style=flat&logo=scikitlearn&logoColor=F5F7F8"/>    <img src="https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=F5F7F8"/> <img src="https://img.shields.io/badge/Selenium-43B02A?style=flat&logo=selenium&logoColor=F5F7F8"/>  <img src="https://img.shields.io/badge/Beautifulsoup-3776AB?style=flat&logo=Beautifulsoup&logoColor=#090a0a"/> <img src="https://img.shields.io/badge/Apache Airflow-017CEE?style=flat&logo=Apache Airflow&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Redis-FF4438?style=flat&logo=Redis&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Amazon%20EC2-232F3E?style=flat&logo=amazonwebservices&logoColor=FFFFF"/> 
-
-   
-<br></br>
-
+<img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=FastAPI&logoColor=FFFFFF"/> <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=flat&logo=Python&logoColor=F5F7F8"/> <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=MongoDB&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Amazon%20S3-569A31?style=flat&logo=Amazon%20S3&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=white"/> <img src="https://img.shields.io/badge/Apache%20Kafka-231F20?style=flat&logo=Apache%20Kafka&logoColor=white"/> <img src="https://img.shields.io/badge/Numpy-013243?style=flat&logo=numpy&logoColor=F5F7F8"/> <img src="https://img.shields.io/badge/Scikitlearn-F7931E?style=flat&logo=scikitlearn&logoColor=F5F7F8"/>    <img src="https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=F5F7F8"/> <img src="https://img.shields.io/badge/Selenium-43B02A?style=flat&logo=selenium&logoColor=F5F7F8"/>  <img src="https://img.shields.io/badge/Beautifulsoup-3776AB?style=flat&logo=Beautifulsoup&logoColor=#090a0a"/> <img src="https://img.shields.io/badge/Apache Airflow-017CEE?style=flat&logo=Apache Airflow&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Redis-FF4438?style=flat&logo=Redis&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Amazon%20EC2-232F3E?style=flat&logo=amazonwebservices&logoColor=ffffff"/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=ffffff"/> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=TypeScript&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=Bootstrap&logoColor=ffffff"/> <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Kakao-FFCD00?style=flat&logo=Kakao&logoColor=ffffff"/> <img src="https://img.shields.io/badge/Google Chrome-4285F4?style=flat&logo=Google Chrome&logoColor=ffffff"/>
+<br></br> 
 ## 개발기간
 `2024.11.14 ~ 2025.1.2(50일)`
 <br></br>
-
-=======================================================================================
 # **Features**
 # 1. REACT
+## 개요
+- TicketMoa의 front-end를 담당하는 application
+- Nginx를 Load Balancer로 활용하여 가용성을 높임
+<br></br>
+## 실행 요구 사항
+```
+$ docker compose up -d --build --force-recreate    
+# multi staging을 적용하여 docker 내부에서 build dependency를 설치하고, build까지 이뤄지게 함
+```
+## 참고 사항
+- 80 port를 이미 사용 중인 경우
+```
+# 프로세스 확인
+$ netstat -nltp
+
+# 80 port 비우고 docker 실행
+$ kill -9 <PID>
+$ fuser -k <PID/Program name>
+
+# docker-compose에서 port 변경 후 docker 실행
+$ vi docker-compose.yaml
+```
 # 2. API
 ## 개요
 - docker-compose를 활용하여 FastAPI 실행, 공연 정보 제공 
 - 사용자가 다양한 공연에 대한 정보를 검색, 조회, 추천할 수 있도록 지원
 - 사용자 경험을 향상시키기 위해 실시간 로그 데이터 분석 및 머신러닝 기반 추천 기능 제공
 <br></br>
-
 ## 목차
 - [API Features](#API-Features)
 - [Logging](#Logging)
@@ -86,7 +100,6 @@
 ### exclusive_all
 - 예매처별 단독 판매되는 공연 전체 조회
 <br></br>
-
 ## Logging
 ### 로깅 시스템
 - 'Validate', 'Login_log', 'Logout_log', 'KakaoLogin_log', 'KakaoLogout_log', 'Signup_log', 'View_detail_log' , 'Search_log' 토픽에 대해 사용자 요청을 로깅
@@ -103,7 +116,6 @@
 2. 확장성: 토픽별 배치 처리로 대규모 데이터도 성능 저하 없이 처리 가능
 3. 안정성: 업로드 후 버퍼 초기화를 통해 중복 저장을 방지하고 데이터 무결성 유지
 <br></br>
-
 ## API 실행 요구 사항 
 ```bash
 # 도커 빌드
@@ -117,18 +129,15 @@ docker compose up -d
 ### Kafka UI 접속
 [localhost:8081](https://localhost:8081)
 <br></br>
-
 # 3. OCR
 ## 개요
 - 이미지에서 텍스트를 추출하는 OCR(Optical Character Recognition) 기능 제공
 - `easyocr` 라이브러리를 사용하여 이미지를 처리하고 텍스트 추출
 <br></br>
-
 ## 목차
 - [기능설명](#OCR-기능설명)
 - [이미지 전처리](#이미지-전처리)
 <br></br>
-
 ## OCR 기능설명
 - 이미지를 로드하여 OCR을 사용해 텍스트를 추출
 - 다양한 이미지 포맷 지원 (JPEG, PNG, TIFF 등)
@@ -136,13 +145,10 @@ docker compose up -d
 - 텍스트 추출 정확도 개선을 위한 기본 이미지 전처리 기능 제공
 - 이미지 전처리 후 MongoDB에 데이터 적재
 <br></br>
-
 ## 이미지 전처리
 OCR의 정확도를 높이기 위해 이미지를 전처리할 수 있습니다. 다음과 같은 전처리 옵션을 사용할 수 있습니다:
-
 - 이미지 크기 조정
 - 이미지 분할 (큰 이미지의 경우)
-
 ```python
 # 이미지 크기 조정
 def resize_image(image, max_width=1000):
@@ -162,25 +168,21 @@ def split_image(image, height_limit=1000):
     return parts
 ```
 <br></br>
-
 # 4. ML
 ## 개요
 - 공연 데이터를 기반으로 유사한 공연을 추천하는 알고리즘 구현
 - 주로 공연의 설명(description)과 시작일(start_date), 지역(region) 등의 정보를 활용하여 유사한 공연을 찾아 추천
 <br></br>
-
 ## 목차
 - [기능설명](#ML-기능설명)
 - [get_top_similar_performances 함수](#get_top_similar_performances-함수)
 <br></br>
-
 ## ML 기능설명
 - **공연 데이터 분석**: 주어진 공연 데이터에서 중요한 특성(설명, 지역, 날짜 등)을 기반으로 공연을 분석합니다.
 - **유사도 계산**: 각 공연 간의 유사도를 계산하여 유사한 공연들을 추천합니다.
 - **추천 시스템**: 공연 설명을 벡터화하고, 코사인 유사도를 이용해 유사한 공연들을 추천합니다.
 - **지역 및 날짜 필터링**: 유사 공연 추천 시, 지역과 날짜 기준으로 필터링하여 정확도를 높입니다.
 <br></br>
-
 ## get_top_similar_performances 함수
 ```python
 def get_top_similar_performances(cosine_sim: np.ndarray, performances, top_n=3, threshold=0.98, days_limit=90)
@@ -196,18 +198,15 @@ def get_top_similar_performances(cosine_sim: np.ndarray, performances, top_n=3, 
 pip install numpy pandas scikit-learn gensim konlpy
 ```
 <br></br>
-
 # 5. CRAWLING
 ## 개요
 - Interpark / YES24 / Ticketlink 웹사이트에서 공연 티켓 정보를 크롤링하여, 다양한 공연의 티켓 정보를 수집하고 사용자에게 제공하는 기능을 구현
 - 크롤링한 데이터는 특정 형식으로 저장되어, 후속 작업으로 티켓 검색 및 필터링 기능을 제공하거나, 다른 시스템에 연동할 수 있도록 활용
 <br></br>
-
 ## CRAWLING 기능설명
 - **공연 티켓 크롤링**: Interpark / YES24 / Ticketlink 웹사이트에서 공연 티켓 정보를 자동으로 크롤링
 - **티켓 정보 수집**: 공연 이름, 날짜, 시간, 가격, 좌석 정보 등 다양한 티켓 정보를 수집
 <br></br>
-
 # 6. AIRFLOW
 ## 개요
 - 구성: Docker Compose로 Apache Airflow와 Apache Kafka를 구성
@@ -217,13 +216,10 @@ pip install numpy pandas scikit-learn gensim konlpy
 - 중복 데이터 삭제: 매일 배치 작업으로 MongoDB 중복 데이터 삭제.
 - 로그 기반 인기 공연 추출: S3 로그 데이터를 읽어와 인기 공연 추출 결과를 매일 배치 작업으로 생성하여 MongoDB에 저장.
 <br></br>
-
 ## 목차
 - [DAGs](#DAGs)
 - [실행 요구 사항](#AIRFLOW-실행-요구-사항)
-
 <br></br>
-
 ## DAGs
 
 ![image](https://github.com/user-attachments/assets/edabd89d-cb94-40c3-bbde-a159deb3c8bb)
@@ -244,7 +240,6 @@ pip install numpy pandas scikit-learn gensim konlpy
 - S3에 저장된 로그 데이터를 읽어 인기 공연 추출
 - 추출한 데이터를 MongoDB에 저장
 <br></br>
-
 ## AIRFLOW 실행 요구 사항
 ```
 # 도커 빌드
@@ -255,10 +250,9 @@ $ docker compose up -d
 ### Airflow UI 접속 
 [localhost:8080](https://localhost:8080)
 <br></br>  
-
 # 7. SPARK
 
-===============================================================
+
 
 ## Contributors
 `Mingk42`, `hahahellooo`, `hamsunwoo`, `oddsummer56`
