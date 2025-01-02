@@ -39,7 +39,7 @@
 ## 목차
 - [API Features](#API-Features)
 - [Logging](#Logging)
-- [실행 요구 사항](#실행-요구-사항)
+- [실행 요구 사항](#API-실행-요구-사항)
 <br></br>
 
 ## API Features
@@ -101,7 +101,7 @@
 3. 안정성: 업로드 후 버퍼 초기화를 통해 중복 저장을 방지하고 데이터 무결성 유지
 <br></br>
 
-## 실행 요구 사항 
+## API 실행 요구 사항 
 ```bash
 # 도커 빌드
 docker compose build
@@ -124,7 +124,6 @@ docker compose up -d
 ## 목차
 - [기능설명](#OCR-기능설명)
 - [이미지 전처리](#이미지-전처리)
-- [실행 요구 사항](#실행-요구-사항)
 <br></br>
 
 ## OCR 기능설명
