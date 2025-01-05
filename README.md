@@ -1,9 +1,7 @@
-# 🎫 TicktMoa 🎫 수정중ㅇㅇㅇㅇㅇ
+# <img src="https://github.com/user-attachments/assets/1bab35d6-043c-4223-84da-bd03b03c26c8" alt="TicketMoa Logo" style="vertical-align: middle; width: 250px; height: auto;">  
 ## 공연 티켓 통합 사이트 
-![image](https://github.com/user-attachments/assets/42dbda50-3d3e-4eff-bf38-9415e3e2d3af)
-![image](https://github.com/user-attachments/assets/1bab35d6-043c-4223-84da-bd03b03c26c8)
+![image](https://github.com/user-attachments/assets/b7df3ace-5ff2-4892-a137-03f0e5f49314)
 
-<br></br>
 ## 🗂️ 프로젝트 소개
 ### 주제 선정 이유
 뮤지컬, 공연, 전시, 행사 등 다양한 플랫폼에 흩어져 있는 티켓 정보를 확인하는 과정이 복잡하고 불편하다는 점을 해결하고자 플랫폼 개발을 시작하게 되었습니다.
@@ -104,8 +102,13 @@ https://github.com/user-attachments/assets/40b1c525-562f-43b6-88e3-58f1d7079b85
 https://github.com/user-attachments/assets/f5aff28d-5b63-4b4c-a396-a3f4945cc075
 
 ## 🤝 Contributors
-![image](https://github.com/user-attachments/assets/7fc14db7-9442-426e-ab16-304598054235)
-<br></br>
+  | 역할 | 이름 | 책임 |
+  |----|------|------|
+  | PM | 김태민 | 프론트 |
+  | AC | 정미은 | 데이터 ETL |
+  | TL | 함선우 | 데이터 ETL |
+  | AA | 오지현 | 백엔드 |
+
 ## ⚖️ License
 이 애플리케이션은 TU-tech 라이선스에 따라 라이선스가 부과됩니다.
 <br></br>
